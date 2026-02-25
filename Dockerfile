@@ -32,9 +32,5 @@ COPY --from=builder /app/omikuji-api .
 # Expose port 80
 EXPOSE 80
 
-# Run as non-root user for security
-RUN adduser -D -u 1000 appuser
-USER appuser
-
 # Start the application
 CMD ["./omikuji-api"]

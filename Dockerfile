@@ -1,7 +1,8 @@
 # ============================================
 # Build Stage
 # ============================================
-FROM golang:1.21-alpine AS builder
+# 上限に引っかかったためパブリックに変更
+FROM public.ecr.aws/docker/library/golang:1.21-alpine AS builder
 
 WORKDIR /app
 
@@ -19,6 +20,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o omikuji-api main.go
 # ============================================
 # Production Stage
 # ============================================
+# 上限に引っかかったためパブリックに変更
 FROM public.ecr.aws/docker/library/alpine:3.19
 
 # Install stress-ng for /stress endpoint

@@ -19,7 +19,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o omikuji-api main.go
 # ============================================
 # Production Stage
 # ============================================
-FROM alpine:3.19
+FROM public.ecr.aws/docker/library/alpine:3.19
 
 # Install stress-ng for /stress endpoint
 RUN apk add --no-cache stress-ng
